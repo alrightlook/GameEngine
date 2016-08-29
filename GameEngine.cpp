@@ -3,7 +3,7 @@
 
 GameEngine::GameEngine()
 {
-
+    _renderMethod = OpenGL;
 }
 
 GameEngine::~GameEngine()
@@ -11,7 +11,7 @@ GameEngine::~GameEngine()
 
 }
 GameEngine* GameEngine::_instance = 0;
-GameEngine* GameEngine::getInstance()
+GameEngine* GameEngine::GetInstance()
 {
     if (_instance == 0)
     {
@@ -20,13 +20,32 @@ GameEngine* GameEngine::getInstance()
     return _instance;
 }
 
-const char* GameEngine::getVersionCode()
+const char* GameEngine::GetRenderMethod()
+{
+    if (_renderMethod == OpenGL)
+    {
+        return "OpenGL";
+    }
+    else if (_renderMethod == DirectX)
+    {
+        return "DirectX";
+    }
+    return "OpenGL";
+}
+
+const char* GameEngine::GetVersionCode()
 {
     return this->_versionCode;
 }
 
-int main(int argc, char argv[])
+void GameEngine::Init()
 {
-    std::cout<<"Jerry's GameEngine VersionCode: "<<GameEngine::getInstance()->getVersionCode()<<std::endl;
+    std::cout<<"Jerry's Game Engine Version:"<<GetInstance()->GetVersionCode()<<std::endl;
+    std::cout<<"--------------------------------------"<<std::endl;
+    std::cout<<"Render Method:"<<GetInstance()->GetRenderMethod()<<std::endl;
+}
+
+int main(int argc, char* argv[])
+{
     return 0;
 }
