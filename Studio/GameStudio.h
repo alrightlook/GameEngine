@@ -1,3 +1,5 @@
+#include <SDL.h>
+
 class GameStudio
 {
 private:
@@ -6,6 +8,8 @@ private:
     ~GameStudio();
     void init();
     void run();
+    bool mQuit;
+    SDL_Event mSDLEvent;    
 
 public:
     GameStudio* GetInstance();
