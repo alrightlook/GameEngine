@@ -40,12 +40,8 @@ const char* GameEngine::GetVersionCode()
 
 void GameEngine::Init()
 {
+
     std::cout<<"Jerry's Game Engine Version:"<<GetInstance()->GetVersionCode()<<std::endl;
     std::cout<<"--------------------------------------"<<std::endl;
     std::cout<<"Render Method:"<<GetInstance()->GetRenderMethod()<<std::endl;
-}
-
-int main(int argc, char* argv[])
-{
-    return 0;
 }
