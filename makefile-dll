@@ -5,7 +5,7 @@ SDLLIBPATH = /LIBPATH:"C:\thirdpartlibs\SDL2-devel-2.0.4-VC\SDL2-2.0.4\lib\x86"
 LIBS = SDL2.lib SDL2main.lib d3d9.lib 
 SRC = *.cpp
 GameEngine:$(SRC)
-    cl /DLIBRARY_EXPORTS /DLL /EHsc $(SRC) $(SDLCFLAG) $(LIBS) $(DXSDKCFLAG) /link $(SDLLIBPATH) $(DXLIBPATH)  /out:GameEngine.dll /IMPLIB:"GameEngine.lib" /SUBSYSTEM:CONSOLE
+    cl /DLIBRARY_EXPORTS /LD /EHsc $(SRC) $(SDLCFLAG) $(LIBS) $(DXSDKCFLAG) /link $(SDLLIBPATH) $(DXLIBPATH)  /out:GameEngine.dll /IMPLIB:"GameEngine.lib" /SUBSYSTEM:CONSOLE
     del *.obj
 
 clean:
